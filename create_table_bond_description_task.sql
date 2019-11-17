@@ -11,11 +11,58 @@
 
 CREATE TABLE public.listing_task
 (
-    "ID" bigint NOT NULL,
-    "ISIN" text COLLATE pg_catalog."default" NOT NULL,
-    "Platform" text COLLATE pg_catalog."default" NOT NULL,
-    "Section" text COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT listing_task_pkey PRIMARY KEY ("ID")
+    "ISIN, RegCode, NRDCode"
+    "FinToolType"
+    "SecurityType"
+    "SecurityKind"
+    "CouponType"
+    "RateTypeNameRus_NRD"
+    "CouponTypeName_NRD"
+    "HaveOffer"
+    "AmortisedMty"
+    "MaturityGroup"
+    "IsConvertible"
+    "ISINCode"
+    "Status"
+    "HaveDefault"
+    "IsLombardCBR_NRD"
+    "IsQualified_NRD"
+    "ForMarketBonds_NRD"
+    "MicexList_NRD"
+    "Basis"
+    "Basis_NRD"
+    "Base_Month"
+    "Base_Year"
+    "Coupon_Period_Base_ID"
+    "AccruedintCalcType"
+    "IsGuaranteed"
+    "GuaranteeType"
+    "GuaranteeAmount"
+    "GuarantVal"
+    "Securitization"
+    "CouponPerYear"
+    "Cp_Type_ID"
+    "NumCoupons"
+    "NumCoupons_M"
+    "NumCoupons_NRD"
+    "Country"
+    "FaceFTName"
+    "FaceFTName_M"
+    "FaceFTName_NRD"
+    "FaceValue"
+    "FaceValue_M"
+    "FaceValue_NRD"
+    "CurrentFaceValue_NRD"
+    "BorrowerName"
+    "BorrowerOKPO"
+    "BorrowerSector"
+    "BorrowerUID"
+    "IssuerName"
+    "IssuerName_NRD"
+     "IssuerOKPO"
+    "NumGuarantors"
+    "EndMtyDate"
+    CONSTRAINT listing_task_pkey PRIMARY KEY ("ISIN, RegCode, NRDCode")
 )
 
 TABLESPACE pg_default;
