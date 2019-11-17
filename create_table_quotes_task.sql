@@ -1,4 +1,4 @@
--- сохранить файл Excel в формате csv, все форматы дат сделать именно датами, удалить лишние листы из файла
+-- сохранить файл Excel в формате csv, все форматы дат сделать именно датами, удалить лишние листы из файла,отобразить скрытые столбцы
 -- импортировать с помощью функции copy данные из файла, указать откуда (FROM) копировать данные.
 -- У меня не вышло (из папки tmp тоже), поэтому с помощью  IMPORT/EXPORT: 
 -- Вверху строчка EXPORT, двигаешь ползунок на IMPORT
@@ -14,11 +14,13 @@ CREATE TABLE public.quotes_task
     "ID" integer NOT NULL,
     "TIME" integer NOT NULL,
     "ACCRUEDINT" real NOT NULL,
+    "ASK" real NOT NULL,
     "ASK_SIZE" integer,
     "ASK_SIZE_TOTAL" integer,
     "AVGE_PRCE" real,
     "BID" real,
     "BID_SIZE" integer,
+    "BID_SIZE_TOTAL" integer,
     "BOARDID" text COLLATE pg_catalog."default",
     "BOARDNAME" text COLLATE pg_catalog."default",
     "BUYBACKDATE" date,
