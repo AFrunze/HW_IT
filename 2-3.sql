@@ -1,4 +1,4 @@
-INSERT INTO public.listing_task ()
-   SELECT столбец1, столбец2,... столбец N
+INSERT INTO public.listing_task ("IssuerName", "IssuerName_NRD", "IssuerOKPO")
+   SELECT "IssuerName","IssuerName_NRD","IssuerOKPO"
    FROM public.bond_description_task
-   WHERE ;
+   WHERE public.listing_task = public.bond_description_task;
