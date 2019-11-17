@@ -1,3 +1,4 @@
+--2
 -- вставка данных об эмитентах
 INSERT INTO public.listing_task ("IssuerName", "IssuerName_NRD", "IssuerOKPO")
    SELECT "IssuerName","IssuerName_NRD","IssuerOKPO"
@@ -9,3 +10,6 @@ INSERT INTO public.listing_task ("BOARDID", "BOARDNAME")
    SELECT "BOARDID", "BOARDNAME"
    FROM public.quotes_task
    WHERE public.listing_task."ISIN" = public.bquotes_task."ISIN";
+
+-- 3
+-- задавать внешние ключи нецелесообразно, так как в этих таблицах нет уникальных значений для каждой из них
