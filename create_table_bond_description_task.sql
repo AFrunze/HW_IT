@@ -1,4 +1,4 @@
--- сохранить файл Excel в формате csv, все форматы дат сделать именно датами, удалить лишние(скрытые) листы из файла, отобразить все столбцы
+-- сохранить файл Excel в формате csv, все форматы дат сделать именно датами,числа числами (0 и 1), удалить лишние (скрытые) листы из файла, отобразить все столбцы
 -- импортировать с помощью функции copy данные из файла, указать откуда (FROM) копировать данные.
 -- У меня не вышло (из папки tmp тоже), поэтому с помощью  IMPORT/EXPORT: 
 -- Вверху строчка EXPORT, двигаешь ползунок на IMPORT
@@ -11,15 +11,15 @@
 
 CREATE TABLE public.listing_task
 (
-    "ISIN, RegCode, NRDCode"
-    "FinToolType"
-    "SecurityType"
-    "SecurityKind"
-    "CouponType"
-    "RateTypeNameRus_NRD"
-    "CouponTypeName_NRD"
-    "HaveOffer"
-    "AmortisedMty"
+    "ISIN, RegCode, NRDCode" text NOT NULL,
+    "FinToolType" text NOT NULL,
+    "SecurityType" text NOT NULL,
+    "SecurityKind" text NOT NULL,
+    "CouponType" text NOT NULL,
+    "RateTypeNameRus_NRD" text NOT NULL,
+    "CouponTypeName_NRD" text NOT NULL,
+    "HaveOffer" boolean,
+    "AmortisedMty" boolean,
     "MaturityGroup"
     "IsConvertible"
     "ISINCode"
