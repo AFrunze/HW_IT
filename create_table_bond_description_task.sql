@@ -1,4 +1,4 @@
--- сохранить файл Excel в формате csv, все форматы дат сделать именно датами,числа числами (0 и 1), удалить лишние (скрытые) листы из файла, отобразить все столбцы
+-- сохранить файл Excel в формате csv, все форматы дат сделать именно датами,числа числами (0 и 1 в boolean), удалить лишние (скрытые) листы из файла, отобразить все столбцы
 -- импортировать с помощью функции copy данные из файла, указать откуда (FROM) копировать данные.
 -- У меня не вышло (из папки tmp тоже), поэтому с помощью  IMPORT/EXPORT: 
 -- Вверху строчка EXPORT, двигаешь ползунок на IMPORT
@@ -12,56 +12,56 @@
 CREATE TABLE public.listing_task
 (
     "ISIN, RegCode, NRDCode" text NOT NULL,
-    "FinToolType" text NOT NULL,
-    "SecurityType" text NOT NULL,
-    "SecurityKind" text NOT NULL,
-    "CouponType" text NOT NULL,
-    "RateTypeNameRus_NRD" text NOT NULL,
-    "CouponTypeName_NRD" text NOT NULL,
+    "FinToolType" text,
+    "SecurityType" text,
+    "SecurityKind" text,
+    "CouponType" text,
+    "RateTypeNameRus_NRD" text,
+    "CouponTypeName_NRD" text,
     "HaveOffer" boolean,
     "AmortisedMty" boolean,
-    "MaturityGroup"
-    "IsConvertible"
-    "ISINCode"
-    "Status"
-    "HaveDefault"
-    "IsLombardCBR_NRD"
-    "IsQualified_NRD"
-    "ForMarketBonds_NRD"
-    "MicexList_NRD"
-    "Basis"
-    "Basis_NRD"
-    "Base_Month"
-    "Base_Year"
-    "Coupon_Period_Base_ID"
-    "AccruedintCalcType"
-    "IsGuaranteed"
-    "GuaranteeType"
-    "GuaranteeAmount"
-    "GuarantVal"
-    "Securitization"
-    "CouponPerYear"
-    "Cp_Type_ID"
-    "NumCoupons"
-    "NumCoupons_M"
-    "NumCoupons_NRD"
-    "Country"
-    "FaceFTName"
-    "FaceFTName_M"
-    "FaceFTName_NRD"
-    "FaceValue"
-    "FaceValue_M"
-    "FaceValue_NRD"
-    "CurrentFaceValue_NRD"
-    "BorrowerName"
-    "BorrowerOKPO"
-    "BorrowerSector"
-    "BorrowerUID"
-    "IssuerName"
-    "IssuerName_NRD"
-     "IssuerOKPO"
-    "NumGuarantors"
-    "EndMtyDate"
+    "MaturityGroup" text,
+    "IsConvertible" boolean,
+    "ISINCode" text,
+    "Status" text,
+    "HaveDefault" boolean,
+    "IsLombardCBR_NRD" boolean,
+    "IsQualified_NRD" boolean,
+    "ForMarketBonds_NRD" boolean,
+    "MicexList_NRD" text,
+    "Basis" text,
+    "Basis_NRD" text,
+    "Base_Month" text,
+    "Base_Year" text,
+    "Coupon_Period_Base_ID" integer,
+    "AccruedintCalcType" boolean,
+    "IsGuaranteed" boolean,
+    "GuaranteeType" text,
+    "GuaranteeAmount" text,
+    "GuarantVal" bigint,
+    "Securitization" text,
+    "CouponPerYear" integer, 
+    "Cp_Type_ID" integer, 
+    "NumCoupons" integer,
+    "NumCoupons_M" integer, 
+    "NumCoupons_NRD" integer,
+    "Country" text, --char[2]
+    "FaceFTName" text, --char[3]
+    "FaceFTName_M" integer,
+    "FaceFTName_NRD" text, --char[3]
+    "FaceValue" real,
+    "FaceValue_M" integer,
+    "FaceValue_NRD" real,
+    "CurrentFaceValue_NRD" real,
+    "BorrowerName" text,
+    "BorrowerOKPO" bigint,
+    "BorrowerSector" text,
+    "BorrowerUID" integer,
+    "IssuerName" text,
+    "IssuerName_NRD" text,
+    "IssuerOKPO" bigint,
+    "NumGuarantors" smallint,
+    "EndMtyDate" date,
     CONSTRAINT listing_task_pkey PRIMARY KEY ("ISIN, RegCode, NRDCode")
 )
 
