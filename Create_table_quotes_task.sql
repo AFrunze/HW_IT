@@ -50,3 +50,6 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.quotes_task
     OWNER to postgres;
+
+-- copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/quotes_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
+--\copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/quotes_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
