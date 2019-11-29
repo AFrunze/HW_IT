@@ -18,3 +18,7 @@ from (select "ISSUER","ISIN",
 where "ISIN" in ( select "ISIN" from public.listing_task
                  where public.listing_task."Platform" like "Московская Биржа " 
                  and public.listing_task."Section" like "Основной");
+
+-- Комментарий:
+-- Не понял идеи с умножением count на 100 в числителе и знаменателе. 
+-- А что если, NULL в ASK появится, как в BID? 
