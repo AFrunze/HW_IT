@@ -55,3 +55,6 @@ ALTER TABLE public.quotes_task
 
 -- copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/quotes_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
 --\copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/quotes_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
+
+-- Комментарий:
+-- Подя с датами следует, например, TIME следует импортировать в формате поле date. В последующих заданиях возможно потребуется сделать отбор по датам. Проверить в других запросах создания таблиц.
