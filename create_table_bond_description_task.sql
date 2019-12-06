@@ -9,7 +9,7 @@
 -- В строчке ENCONDING выбирать WIN1251 
 -- И после всех этих действий нажать ОК 
 
-CREATE TABLE public.listing_task
+CREATE TABLE public.bond_description
 (
     "ISIN, RegCode, NRDCode" text NOT NULL,
     "FinToolType" text,
