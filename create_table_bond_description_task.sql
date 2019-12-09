@@ -70,7 +70,7 @@ CREATE TABLE public.bond_description
 TABLESPACE pg_default;
 
 ALTER TABLE public.bond_description
-    OWNER to postgres
+    OWNER to postgres;
 
 -- copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/bond_description_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
 --\copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/bond_description_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
