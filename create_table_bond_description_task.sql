@@ -8,10 +8,10 @@
 -- Он должен быть в формате csv
 -- Далее ползунок в HEADER 
 -- После этого нужно выбирать делиметр: обычно это точка с запятой
--- В строчке ENCONDING выбирать WIN1251 / utf8
+-- В строчке ENCONDING выбирать WIN1251 / utf8 у меня
 -- И после всех этих действий нажать ОК 
 
-CREATE TABLE public.bond_description
+CREATE TABLE public.bond_description1
 (
     "ISIN, RegCode, NRDCode" text COLLATE pg_catalog."default" NOT NULL,
     "FinToolType" text COLLATE pg_catalog."default" NOT NULL,
@@ -30,27 +30,27 @@ CREATE TABLE public.bond_description
     "IsLombardCBR_NRD" boolean,
     "IsQualified_NRD" boolean,
     "ForMarketBonds_NRD" boolean,
-    "MicexList_NRD" text,
-    "Basis" text,
-    "Basis_NRD" text,
-    "Base_Month" text,
-    "Base_Year" text,
+    "MicexList_NRD" text COLLATE pg_catalog."default",
+    "Basis" text COLLATE pg_catalog."default",
+    "Basis_NRD" text COLLATE pg_catalog."default",
+    "Base_Month" text COLLATE pg_catalog."default",
+    "Base_Year" text COLLATE pg_catalog."default",
     "Coupon_Period_Base_ID" integer,
     "AccruedintCalcType" boolean,
     "IsGuaranteed" boolean,
     "GuaranteeType" text COLLATE pg_catalog."default",
     "GuaranteeAmount" text COLLATE pg_catalog."default",
     "GuarantVal" bigint,
-    "Securitization" text,
+    "Securitization" text COLLATE pg_catalog."default",
     "CouponPerYear" integer, 
     "Cp_Type_ID" integer, 
     "NumCoupons" integer,
     "NumCoupons_M" integer, 
     "NumCoupons_NRD" integer,
-    "Country" text, --char[2]
-    "FaceFTName" text, --char[3]
+    "Country" text COLLATE pg_catalog."default", --char[2]
+    "FaceFTName" text COLLATE pg_catalog."default", --char[3]
     "FaceFTName_M" integer,
-    "FaceFTName_NRD" text, --char[3]
+    "FaceFTName_NRD" text COLLATE pg_catalog."default", --char[3]
     "FaceValue" real,
     "FaceValue_M" integer,
     "FaceValue_NRD" real,
@@ -64,6 +64,49 @@ CREATE TABLE public.bond_description
     "IssuerOKPO" bigint,
     "NumGuarantors" smallint,
     "EndMtyDate" date,
+    CONSTRAINT bond_description1_pkey PRIMARY KEY ("ISIN, RegCode, NRDCode")
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.bond_description1
+    OWNER to postgres;
+
+
+
+-- copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/bond_description_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
+--\copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/bond_description_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
+
+
+
+--- если можно удалить скрытые столбцы и тогда останетсят только 25 столбцов:
+CREATE TABLE public.bond_description
+(
+    "ISIN, RegCode, NRDCode" text COLLATE pg_catalog."default" NOT NULL,
+    "FinToolType" text COLLATE pg_catalog."default" NOT NULL,
+    "SecurityType" text COLLATE pg_catalog."default",
+    "SecurityKind" text COLLATE pg_catalog."default",
+    "CouponType" text COLLATE pg_catalog."default",
+    "RateTypeNameRus_NRD" text COLLATE pg_catalog."default",
+    "CouponTypeName_NRD" text COLLATE pg_catalog."default",
+    "HaveOffer" boolean NOT NULL,
+    "AmortisedMty" boolean NOT NULL,
+    "MaturityGroup" text COLLATE pg_catalog."default",
+    "IsConvertible" boolean NOT NULL,
+    "ISINCode" text COLLATE pg_catalog."default" NOT NULL,
+    "Status" text COLLATE pg_catalog."default",
+    "HaveDefault" boolean NOT NULL,
+    "GuaranteeType" text COLLATE pg_catalog."default",
+    "GuaranteeAmount" text COLLATE pg_catalog."default",
+    "BorrowerName" text COLLATE pg_catalog."default",
+    "BorrowerOKPO" integer,
+    "BorrowerSector" text COLLATE pg_catalog."default",
+    "BorrowerUID" integer,
+    "IssuerName" text COLLATE pg_catalog."default",
+    "IssuerName_NRD" text COLLATE pg_catalog."default",
+    "IssuerOKPO" integer,
+    "NumGuarantors" smallint,
+    "EndMtyDate" date,
     CONSTRAINT bond_description_pkey PRIMARY KEY ("ISIN, RegCode, NRDCode")
 )
 
@@ -71,6 +114,3 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.bond_description
     OWNER to postgres;
-
--- copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/bond_description_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
---\copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/bond_description_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
