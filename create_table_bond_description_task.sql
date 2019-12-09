@@ -1,5 +1,6 @@
 -- сохранить файл Excel в формате csv, все форматы дат сделать именно датами,числа числами (0 и 1 в boolean), 
 удалить лишние (скрытые) листы из файла, отобразить все столбцы
+-- В исходном файле 133 строку сделать формат по образцу 132. Изменить формат даты с ДД.ММ.ГГГГ на ММ.ДД.ГГГГ
 -- импортировать с помощью функции copy данные из файла, указать откуда (FROM) копировать данные.
 -- У меня не вышло (из папки tmp тоже), поэтому с помощью  IMPORT/EXPORT: 
 -- Вверху строчка EXPORT,ползунок на IMPORT
@@ -12,8 +13,8 @@
 
 CREATE TABLE public.bond_description
 (
-    "ISIN, RegCode, NRDCode" text COLLATE pg_catalog."default" NOT NULL,,
-    "FinToolType" text COLLATE pg_catalog."default" NOT NULL,,
+    "ISIN, RegCode, NRDCode" text COLLATE pg_catalog."default" NOT NULL,
+    "FinToolType" text COLLATE pg_catalog."default" NOT NULL,
     "SecurityType" text COLLATE pg_catalog."default",
     "SecurityKind" text COLLATE pg_catalog."default",
     "CouponType" text COLLATE pg_catalog."default",
