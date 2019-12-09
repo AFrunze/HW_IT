@@ -1,17 +1,17 @@
 -- сохранить файл Excel в формате csv
 -- импортировать с помощью функции copy данные из файла, указать откуда (FROM) копировать данные.
 -- У меня не вышло (из папки tmp тоже), поэтому с помощью  IMPORT/EXPORT: 
--- Вверху строчка EXPORT, двигаешь ползунок на IMPORT
+-- Вверху строчка EXPORT, ползунок на IMPORT
 -- Далее выбрать файл, переходя в папку, где находится документ или сразу вставить путь
 -- Он должен быть в формате csv
--- Далее сдвигаешь ползунок в HEADER 
--- После этого нужно выбирать делиметр: обычно это точка с запятой, у меня запятая
--- В строчке ENCONDING выбирать WIN1251 
+-- Далее ползунок в HEADER 
+-- После этого нужно выбирать делиметр: обычно это точка с запятой
+-- В строчке ENCONDING выбирать WIN1251 / UTF8
 -- И после всех этих действий нажать ОК 
 
 CREATE TABLE public.listing_task
 (
-    "ID" bigint NOT NULL,
+    "ID" integer NOT NULL,
     "ISIN" text COLLATE pg_catalog."default" NOT NULL,
     "Platform" text COLLATE pg_catalog."default" NOT NULL,
     "Section" text COLLATE pg_catalog."default" NOT NULL,
