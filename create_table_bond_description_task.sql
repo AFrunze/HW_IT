@@ -62,12 +62,12 @@ CREATE TABLE public.bond_description
     "IssuerOKPO" bigint,
     "NumGuarantors" smallint,
     "EndMtyDate" date,
-    CONSTRAINT listing_task_pkey PRIMARY KEY ("ISIN, RegCode, NRDCode")
+    CONSTRAINT bond_description_pkey PRIMARY KEY ("ISIN, RegCode, NRDCode")
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE public.listing_task
+ALTER TABLE public.bond_description
     OWNER to postgres
 
 -- copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/bond_description_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
