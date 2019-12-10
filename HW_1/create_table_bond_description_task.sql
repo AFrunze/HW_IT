@@ -1,6 +1,7 @@
 -- сохранить файл Excel в формате csv, все форматы дат сделать именно датами,числа числами (0 и 1 в boolean), 
 -- удалить лишние (скрытые) листы из файла, отобразить все столбцы
 -- В исходном файле 133 строку сделать формат по образцу 132. Изменить формат даты с ДД.ММ.ГГГГ на ММ.ДД.ГГГГ
+-- В формате real разеделителем должна быть запятая
 -- импортировать с помощью функции copy данные из файла, указать откуда (FROM) копировать данные.
 -- У меня не вышло (из папки tmp тоже), поэтому с помощью  IMPORT/EXPORT: 
 -- Вверху строчка EXPORT,ползунок на IMPORT
@@ -11,7 +12,11 @@
 -- В строчке ENCONDING выбирать WIN1251 / utf8 у меня
 -- И после всех этих действий нажать ОК 
 
-CREATE TABLE public.bond_description1
+-- Table: public.bond_description
+
+-- DROP TABLE public.bond_description;
+
+CREATE TABLE public.bond_description
 (
     "ISIN, RegCode, NRDCode" text COLLATE pg_catalog."default" NOT NULL,
     "FinToolType" text COLLATE pg_catalog."default" NOT NULL,
@@ -42,15 +47,15 @@ CREATE TABLE public.bond_description1
     "GuaranteeAmount" text COLLATE pg_catalog."default",
     "GuarantVal" bigint,
     "Securitization" text COLLATE pg_catalog."default",
-    "CouponPerYear" integer, 
-    "Cp_Type_ID" integer, 
+    "CouponPerYear" integer,
+    "Cp_Type_ID" integer,
     "NumCoupons" integer,
-    "NumCoupons_M" integer, 
+    "NumCoupons_M" integer,
     "NumCoupons_NRD" integer,
-    "Country" text COLLATE pg_catalog."default", --char[2]
-    "FaceFTName" text COLLATE pg_catalog."default", --char[3]
+    "Country" text COLLATE pg_catalog."default",
+    "FaceFTName" text COLLATE pg_catalog."default",
     "FaceFTName_M" integer,
-    "FaceFTName_NRD" text COLLATE pg_catalog."default", --char[3]
+    "FaceFTName_NRD" text COLLATE pg_catalog."default",
     "FaceValue" real,
     "FaceValue_M" integer,
     "FaceValue_NRD" real,
@@ -64,12 +69,12 @@ CREATE TABLE public.bond_description1
     "IssuerOKPO" bigint,
     "NumGuarantors" smallint,
     "EndMtyDate" date,
-    CONSTRAINT bond_description1_pkey PRIMARY KEY ("ISIN, RegCode, NRDCode")
+    CONSTRAINT bond_description2_pkey PRIMARY KEY ("ISIN, RegCode, NRDCode")
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE public.bond_description1
+ALTER TABLE public.bond_description
     OWNER to postgres;
 
 
@@ -80,6 +85,7 @@ ALTER TABLE public.bond_description1
 
 
 --- если можно удалить скрытые столбцы и тогда останетсят только 25 столбцов:
+
 CREATE TABLE public.bond_description
 (
     "ISIN, RegCode, NRDCode" text COLLATE pg_catalog."default" NOT NULL,
