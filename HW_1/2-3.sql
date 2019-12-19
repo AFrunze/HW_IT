@@ -12,4 +12,18 @@ INSERT INTO public.listing_task ("BOARDID", "BOARDNAME")
    WHERE public.listing_task."ISIN" = public.bquotes_task."ISIN";
 
 -- 3
--- задавать внешние ключи нецелесообразно, так как в этих таблицах нет уникальных значений для каждой из них
+-- Далее свяжем таблицы listing_task и bond_description с помощью ID
+-- В таблице bond_description создадим поле ID
+-- Импортируем в это поле значения ID из таблицы listing_task при условии, что ISIN-коды значений совпадают
+-- Присваиваем полю ID в таблице bond_descrption внешний ключ из таблицы listing_task
+
+ALTER TABLE public.bond_description
+    ADD COLUMN "ID" integer;
+
+UPDATE bond_description
+SET "ID"=listing_task."ID"
+FROM listing_task
+WHERE bond_description."ISIN, RegCode, NRDCode"=listing."ISIN"
+
+ALTER TABLE public.bond_description
+ADD CONSTRAINT fr_key_1 FOREIGN KEY ("ID") REFERENCES public.listing_task ("ID");
