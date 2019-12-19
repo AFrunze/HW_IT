@@ -18,7 +18,7 @@ ALTER TABLE public.listing_task
     ADD COLUMN "IssuerName_NRD" text,
     ADD COLUMN "IssuerOKPO" integer;
 
-UPDATE listing
+UPDATE listing_task 
 SET "IssuerName"=bond_description."IssuerName",
 "IssuerName_NRD"=bond_description."IssuerName_NRD",
 "IssuerOKPO"=bond_description."IssuerOKPO"
@@ -26,11 +26,11 @@ FROM bond_description
 WHERE listing_task."ISIN"=bond_description."ISINCode"
 
 
-ALTER TABLE public.listing
+ALTER TABLE public.listing_task 
     ADD COLUMN "BOARDID" text,
     ADD COLUMN "BOARDNAME" text;
 
-UPDATE listing
+UPDATE listing_task 
 SET "BOARDID"=quotes."BOARDID",
 "BOARDNAME"=quotes."BOARDNAME"
 FROM quotes
