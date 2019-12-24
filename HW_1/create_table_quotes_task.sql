@@ -11,12 +11,17 @@
 -- И после всех этих действий нажать ОК 
 -- Для формата real нужно, чтобы использовалась ".", а не "," как разделитель.
 
+
+-- Table: public.quotes_task
+
+-- DROP TABLE public.quotes_task;
+
 CREATE TABLE public.quotes_task
 (
     "ID" integer NOT NULL,
     "TIME" date NOT NULL,
-    "ACCRUEDINT" real NOT NULL,
-    "ASK" real NOT NULL,
+    "ACCRUEDINT" real,
+    "ASK" real,
     "ASK_SIZE" integer,
     "ASK_SIZE_TOTAL" integer,
     "AVGE_PRCE" real,
@@ -42,7 +47,7 @@ CREATE TABLE public.quotes_task
     "MPRICE" real,
     "MPRICE2" real,
     "SPREAD" real,
-    "VOL_ACC" integer,
+    "VOL_ACC" bigint,
     "Y2O_ASK" real,
     "Y2O_BID" real,
     "YIELD_ASK" real,
@@ -53,6 +58,6 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.quotes_task
     OWNER to postgres;
-
+    
 -- copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/quotes_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
 --\copy public.listing_task  FROM '/Users/a1/Desktop/IT для финансистов/дз1/Data/Облигации/quotes_task.csv' DELIMITER ';' CSV HEADER ENCODING 'WIN 1251';
